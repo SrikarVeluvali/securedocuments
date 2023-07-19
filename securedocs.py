@@ -53,7 +53,7 @@ def register():
     with open("users.csv", "a", newline="\n") as f2:
         w = csv.writer(f2)
         w.writerow([username, password])
-    k.update({username: random.randint(1, 15)})
+    k.update({username: random.randint(1, 5)})
     fp = open("decode.json", "w")
     json.dump(k, fp)
     fp.close()
