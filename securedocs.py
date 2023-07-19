@@ -17,8 +17,6 @@ with open("users.csv", "r") as f:
 # Opens decode.json
 with open("decode.json", "r") as f:
     k = json.load(f)
-k = json.loads(k)
-
 
 # Encryption
 def encrypt(para, fac):
@@ -56,7 +54,6 @@ def register():
         w = csv.writer(f2)
         w.writerow([username, password])
     k.update({username: random.randint(1, 15)})
-    k = json.dumps(k)
     fp = open("decode.json", "w")
     json.dump(k, fp)
     fp.close()
@@ -108,7 +105,6 @@ def newnote(name):
         print("Enter your content of note here : \n\n")
         with open("decode.json", "r") as fpjson:
             k = json.load(fpjson)
-        k = json.loads(k)
         fac = k[user]
         u = input()
         while len(u) != 0:
@@ -155,7 +151,6 @@ def readexisting():
         print(f"Currently reading -> {dirs_sel[user_inp-1][1]}")
         with open("decode.json", "r") as jsonread:
             usrs = json.load(jsonread)
-        usrs = json.loads(usrs)
         fac = usrs[user]
         with open(f".\\{user}Notes\\{dirs_sel[user_inp-1][1]}", "r") as f:
             t = f.readlines()
